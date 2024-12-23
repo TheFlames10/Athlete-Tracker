@@ -1,106 +1,151 @@
-Docker App - Athlete Workout and Progress Tracker
-Project Overview
-This project is a full-stack web application to track athletes' workouts, progress, and nutrition. It consists of a Ruby on Rails backend API and a React.js frontend, running in Docker containers. The application will allow athletes to log workouts, track calories, and see their progress. Coaches will have additional features to manage their teams and provide personalized workout plans.
+# Athlete Workout and Progress Tracker
 
-Tech Stack
-Backend: Ruby on Rails (API mode), PostgreSQL
-Frontend: React.js, Chart.js (data visualization)
-Database: PostgreSQL
-Docker: For containerization of both frontend and backend services
+## Project Overview
 
-Features and Phases
-Phase 1: Athlete Side MVP
-Dashboard
-Create a dashboard displaying:
-Workout logs
-Calorie intake
-Progress summaries
-Use Chart.js to visualize weekly progress.
-Workout Logging
-Allow athletes to log their exercises (type, sets, reps, weights).
-Implement CRUD operations for workout entries.
-Calorie Tracking
-Build a form for athletes to input daily meals and calorie counts.
-Progress Tracking
-Display personal records (e.g., max lifts, run times) in both tabular and graphical format.
-Frontend Development
-Build the features above in React.js and connect them to the Rails backend API.
+The Athlete Workout and Progress Tracker is a full-stack web application designed to help athletes and coaches track workouts, progress, and nutrition. The app features a Ruby on Rails backend API and a React.js frontend, running in Docker containers. Athletes can log workouts, track calorie intake, and monitor progress. Coaches can manage their teams and provide personalized workout plans.
 
-Phase 2: Advanced Athlete Features
-Team Rankings
-Create a leaderboard based on predefined metrics such as consistency and progress.
-Use Elasticsearch for fast querying and sorting.
-Analytics Dashboard
-Add advanced visualizations like trends and heatmaps.
-Implement filters for time ranges and different metrics.
-Notification System
-Notify athletes about achievements, streaks, or missed workouts via email or SMS.
-Profile and Settings
-Allow athletes to update personal information and fitness goals.
-Add dark mode and other personalization options.
+## Table of Contents
 
-Phase 3: Coach Features
-Team Management
-Allow coaches to view and edit team members’ data.
-Implement bulk upload/download of data (CSV or Excel).
-Performance Reports
-Generate detailed reports for individual athletes or entire teams.
-Workout Plans
-Allow coaches to assign custom workout plans to athletes.
-Track adherence to workout plans.
-Messaging System
-Add a direct messaging feature between coaches and athletes.
+- Tech Stack
+- Features
+- [Setup Instructions
+- How to Use
+  - Athletes
+  - Coaches
+- Future Enhancements
 
-Setup Instructions
-Follow the steps below to get the application running in a Docker environment.
-Step 1: Set Up the Project Directory
+---
+
+## Tech Stack
+
+- **Backend**: Ruby on Rails (API mode), PostgreSQL
+- **Frontend**: React.js, Chart.js (for data visualization)
+- **Database**: PostgreSQL
+- **Containerization**: Docker (for managing frontend and backend services)
+
+---
+
+## Features
+
+### Phase 1: Athlete Side MVP
+
+#### Dashboard
+- Displays workout logs, calorie intake, and progress summaries.
+- Visualizes weekly progress using Chart.js.
+
+#### Workout Logging
+- Log exercises (type, sets, reps, weights).
+- Perform CRUD operations on workout entries.
+
+#### Calorie Tracking
+- Input daily meals and calorie counts.
+
+#### Progress Tracking
+- Display personal records (e.g., max lifts, run times) in tabular and graphical formats.
+
+#### Frontend Development
+- React.js implementation connected to the Rails backend API.
+
+### Phase 2: Advanced Athlete Features
+
+#### Team Rankings
+- Leaderboard based on metrics like consistency and progress.
+- Elasticsearch for fast querying and sorting.
+
+#### Analytics Dashboard
+- Advanced visualizations (trends, heatmaps).
+- Filters for time ranges and metrics.
+
+#### Notification System
+- Email/SMS notifications for achievements, streaks, or missed workouts.
+
+#### Profile and Settings
+- Update personal information and fitness goals.
+- Enable dark mode and other personalization options.
+
+### Phase 3: Coach Features
+
+#### Team Management
+- View and edit team members’ data.
+- Bulk upload/download data (CSV or Excel).
+
+#### Performance Reports
+- Generate detailed reports for individuals or teams.
+
+#### Workout Plans
+- Assign custom workout plans to athletes.
+- Track adherence to workout plans.
+
+#### Messaging System
+- Direct communication between coaches and athletes.
+
+---
+
+## Setup Instructions
+
+Follow these steps to set up the application in a Docker environment:
+
+### Step 1: Set Up the Project Directory
 Create a new folder and navigate to it:
+```bash
 mkdir Athlete
 cd Athlete
+```
 
-Step 2: Create the Rails Backend
+### Step 2: Create the Rails Backend
 Generate a new Rails app with PostgreSQL as the database:
+```bash
 rails new back_end_app --api --database=postgresql
+```
 
-Step 3: Add the Rails Dockerfile
-Navigate to the back_end_app directory and create a Dockerfile
-Step 4: Create the React Frontend
-Navigate to Athlete and create a new React app:
+### Step 3: Add the Rails Dockerfile
+Navigate to the back_end_app directory and create a Dockerfile.
+
+### Step 4: Create the React Frontend
+Navigate to the Athlete directory and create a new React app:
+```bash
 npx create-react-app front_end_app
+```
 
-Step 5: Add the React Dockerfile
-Navigate to the front_end_app directory and create a Dockerfile
-Step 6: Create the docker-compose.yml
-At the root of your Athlete folder, create a docker-compose.yml file
-In this setup, the Rails server runs on port 3002, and the React server runs on port 3000. The React frontend communicates with the backend via localhost:3002.
-Step 7: Build and Run the Application
-To build and start the application, run the following commands from the root of your project:
+### Step 5: Add the React Dockerfile
+Navigate to the front_end_app directory and create a Dockerfile.
+
+### Step 6: Create the docker-compose.yml
+At the root of your Athlete folder, create a docker-compose.yml file.
+
+### Step 7: Build and Run the Application
+Run the following commands from the root of your project:
+```bash
 docker-compose build
 docker-compose up
+```
 
+## How to Use
 
+### Athletes
+1. Log in to the application.
+2. Navigate to the dashboard to view progress summaries and logs.
+3. Add new workouts or meals to track calorie intake.
+4. View progress charts and personal records.
 
-Folder Structure
-Here’s a look at how your project directory will be structured:
+### Coaches
+1. Log in with coach credentials.
+2. Manage team data and assign workout plans.
+3. Monitor team rankings and individual progress.
+4. Communicate with athletes via the messaging system.
 
-Athlete/
-├── back_end_app/              # Rails API backend
-│   ├── app/
-│   ├── config/
-│   ├── Dockerfile
-│   ├── Gemfile
-│   ├── Gemfile.lock
-│   └── ...
-├── front_end_app/             # React.js frontend
-│   ├── public/
-│   ├── src/
-│   ├── Dockerfile
-│   ├── package.json
-│   └── ...
-├── docker-compose.yml         # Docker Compose file to manage services
-├── README.md                  # This file
-└── tmp/
-    └── db/                    # PostgreSQL data storage
+---
 
+## Future Enhancements
 
+### Athlete Features
+- Enhanced analytics with predictive metrics.
+- Integration with fitness tracking devices.
 
+### Coach Features
+- AI-powered recommendations for workout plans.
+- Video-based exercise tutorials and guidance.
+
+### General Improvements
+- Mobile-friendly design.
+- Multi-language support.
