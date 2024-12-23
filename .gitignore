@@ -1,0 +1,55 @@
+# Node modules (for front_end_app)
+front_end_app/node_modules/
+
+# Ruby on Rails logs and temp files (for back_end_app)
+back_end_app/log/*
+back_end_app/tmp/*
+back_end_app/storage/*
+back_end_app/db/*.sqlite3
+back_end_app/db/*.sqlite3-journal
+
+# Rails secrets (keep sensitive data out of version control)
+back_end_app/config/secrets.yml
+back_end_app/config/credentials.yml.enc
+back_end_app/config/master.key
+
+# Bundler
+back_end_app/.bundle/
+back_end_app/vendor/bundle/
+
+# Gemfile lock file should be tracked, so we do not ignore it
+# (only ignore if you don't want to include it)
+
+# Ignore .env files for environment-specific settings
+front_end_app/.env
+back_end_app/.env
+
+# Docker-related files
+*.log
+*.pid
+*.seed
+*.swp
+*.swo
+docker-compose.override.yml
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*.bak
+*.swp
+*.swo
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
+# Ignore .git directory in submodules
+front_end_app/.git/
+back_end_app/.git/
+
+# Ignore any other temporary or local development files
+front_end_app/build/
+front_end_app/dist/
+back_end_app/public/packs/
