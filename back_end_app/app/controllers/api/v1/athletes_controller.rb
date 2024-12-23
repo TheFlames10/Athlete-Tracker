@@ -1,4 +1,6 @@
 class Api::V1::AthletesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     athletes = Athlete.all
     render json: athletes

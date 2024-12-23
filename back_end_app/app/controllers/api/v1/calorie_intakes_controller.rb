@@ -1,4 +1,6 @@
 class Api::V1::CalorieIntakesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     calorie_intakes = CalorieIntake.all
     render json: calorie_intakes
