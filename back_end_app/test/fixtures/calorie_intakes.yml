@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  athlete_id: 1
+  date: 2024-12-23
+  meal: MyString
+  calories: 9.99
+  food_items: MyText
+
+two:
+  athlete_id: 1
+  date: 2024-12-23
+  meal: MyString
+  calories: 9.99
+  food_items: MyText
