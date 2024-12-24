@@ -8,7 +8,7 @@ The Athlete Workout and Progress Tracker is a full-stack web application designe
 
 - Tech Stack
 - Features
-- [Setup Instructions
+- Setup Instructions
 - How to Use
   - Athletes
   - Coaches
